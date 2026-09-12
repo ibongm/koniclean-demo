@@ -1,5 +1,4 @@
 const PHONE = "385953567768";
-const EMAIL = "info@koniclean.hr";
 
 const rates = {
   stambeni: { label: "Jednokratno čišćenje stana", rate: 2.5, min: 72 },
@@ -22,11 +21,14 @@ function formatEur(n) {
 
 function calcEstimate() {
   const type = document.querySelector("#serviceType")?.value;
-  const area = Number(document.querySelector("#area")?.value || 0);
+  const areaField = document.querySelector("#area");
   const out = document.querySelector("#estimateBox");
   if (!type || !out) return;
 
   const pack = rates[type];
+  if (!pack) return;
+
+  const area = Number(String(areaField?.value || "").replace(",", "."));
   let total = area > 0 ? pack.rate * area : 0;
   const lines = [];
   if (area > 0) lines.push(`${pack.label}: ${area} m² × ${formatEur(pack.rate)}`);
@@ -44,63 +46,59 @@ function calcEstimate() {
     total = pack.min;
   }
 
-  out.querySelector(".big").textContent = total ? formatEur(total) : "—";
-  out.querySelector("ul").innerHTML = lines.map((l) => `<li>${l}</li>`).join("") || "<li>Unesite površinu za procjenu.</li>";
-  out.dataset.total = String(total || 0);
-  out.dataset.summary = lines.join("; ");
+  const big = out.querySelector(".big");
+  const list = out.querySelector("ul");
+  if (big) big.textContent = total ? formatEur(total) : "—";
+  if (list) {
+    list.innerHTML = lines.length
+      ? lines.map((l) => `<li>${l}</li>`).join("")
+      : "<li>Unesite površinu za procjenu.</li>";
+  }
 }
 
 function openWhatsApp(prefill) {
-  const text = encodeURIComponent(prefill);
-  window.open(`https://wa.me/${PHONE}?text=${text}`, "_blank");
-}
-
-function setupNav() {
-  const btn = document.querySelector(".nav-toggle");
-  const links = document.querySelector(".nav-links");
-  if (!btn || !links) return;
-  btn.addEventListener("click", () => links.classList.toggle("open"));
-}
-
-function setupCalc() {
-  const form = document.querySelector("#calcForm");
-  if (!form) return;
-  form.addEventListener("input", calcEstimate);
-  calcEstimate();
-  document.querySelector("#waQuote")?.addEventListener("click", () => {
-    const area = document.querySelector("#area")?.value || "";
-    const type = rates[document.querySelector("#serviceType").value].label;
-    const box = document.querySelector("#estimateBox");
-    const msg = `Pozdrav, želim procjenu za ${type}. Površina: ${area || "nije upisana"} m². Okvirna cijena na stranici: ${box.querySelector(".big").textContent}.`;
-    openWhatsApp(msg);
-  });
-}
-
-function setupContact() {
-  const form = document.querySelector("#contactForm");
-  if (!form) return;
-  const ok = document.querySelector(".form-ok");
-  const err = document.querySelector(".form-err");
-
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    ok.style.display = "none";
-    err.style.display = "none";
-    const data = Object.fromEntries(new FormData(form).entries());
-    if (!data.name || !data.phone || !data.service) {
-      err.style.display = "block";
-      err.textContent = "Molimo unesite ime, telefon i vrstu usluge.";
-      return;
-    }
-    ok.style.display = "block";
-    ok.textContent = "Upit je spreman. Otvara se WhatsApp s popunjenom porukom — ili nazovite +385 95 356 77 68.";
-    const msg = `Pozdrav, ${data.name}. Trebam ${data.service}. Površina: ${data.area || "/"} m². Telefon: ${data.phone}. ${data.message || ""}`.trim();
-    openWhatsApp(msg);
-  });
+  window.open(`https://wa.me/${PHONE}?text=${encodeURIComponent(prefill)}`, "_blank");
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  setupNav();
-  setupCalc();
-  setupContact();
+  const btn = document.querySelector(".nav-toggle");
+  const links = document.querySelector(".nav-links");
+  if (btn && links) btn.addEventListener("click", () => links.classList.toggle("open"));
+
+  const form = document.querySelector("#calcForm");
+  if (form) {
+    form.addEventListener("input", calcEstimate);
+    form.addEventListener("change", calcEstimate);
+    calcEstimate();
+    document.querySelector("#waQuote")?.addEventListener("click", () => {
+      const area = document.querySelector("#area")?.value || "";
+      const type = rates[document.querySelector("#serviceType").value]?.label || "čišćenje";
+      const price = document.querySelector("#estimateBox .big")?.textContent || "—";
+      openWhatsApp(`Pozdrav, želim procjenu za ${type}. Površina: ${area || "nije upisana"} m². Okvirna cijena na stranici: ${price}.`);
+    });
+  }
+
+  const contact = document.querySelector("#contactForm");
+  if (contact) {
+    contact.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const ok = document.querySelector(".form-ok");
+      const err = document.querySelector(".form-err");
+      if (ok) ok.style.display = "none";
+      if (err) err.style.display = "none";
+      const data = Object.fromEntries(new FormData(contact).entries());
+      if (!data.name || !data.phone || !data.service) {
+        if (err) {
+          err.style.display = "block";
+          err.textContent = "Molimo unesite ime, telefon i vrstu usluge.";
+        }
+        return;
+      }
+      if (ok) {
+        ok.style.display = "block";
+        ok.textContent = "Upit je spreman. Otvara se WhatsApp s popunjenom porukom — ili nazovite +385 95 356 77 68.";
+      }
+      openWhatsApp(`Pozdrav, ${data.name}. Trebam ${data.service}. Površina: ${data.area || "/"} m². Telefon: ${data.phone}. ${data.message || ""}`.trim());
+    });
+  }
 });
