@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cjenik — Koni Clean</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="demo-banner">Prijedlog novog izgleda — <strong>demo</strong>, nije službena stranica Koni Clean.</div>
+  <div class="topbar"><div class="topbar-inner"><span>Cijene informativne · bez PDV-a</span><a href="tel:+385953567768">+385 95 356 77 68</a></div></div>
+  <header class="site-header">
+    <div class="nav-inner">
+      <a class="logo" href="index.html"><span class="logo-mark">KONI<span>CLEAN</span></span><span class="logo-sub">Zagreb</span></a>
+      <button class="nav-toggle" aria-label="Izbornik"><span></span></button>
+      <ul class="nav-links">
+        <li><a href="index.html">Početna</a></li>
+        <li><a href="usluge.html">Usluge</a></li>
+        <li><a class="active" href="cjenik.html">Cjenik</a></li>
+        <li><a href="o-nama.html">O nama</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+        <li><a class="btn btn-gold" href="#kalkulator">Kalkulator</a></li>
+      </ul>
+    </div>
+  </header>
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="kicker">Cjenik</p>
+      <h1>Jedna tablica, jedan minimum.</h1>
+      <p>Minimalna narudžba za teren je <strong>65 €</strong>. Jednokratno čišćenje stana kreće od <strong>72 €</strong>.</p>
+    </div>
+  </section>
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Usluga</th><th>Jedinica</th><th>Cijena</th><th>Napomena</th></tr></thead>
+          <tbody>
+            <tr><td>Stan / kuća — jednokratno</td><td>m²</td><td>2,50 €</td><td>min. 72 €</td></tr>
+            <tr><td>Stan — održavanje 2× mjesečno</td><td>paket</td><td>od 136 €</td><td>ovisno o kvadraturi</td></tr>
+            <tr><td>Generalno čišćenje</td><td>m²</td><td>4,00 €</td><td>temeljitije od standarda</td></tr>
+            <tr><td>Nakon adaptacije — stan</td><td>m²</td><td>3,50 €</td><td></td></tr>
+            <tr><td>Ured — održavanje 1× mj.</td><td>m²</td><td>1,60 €</td><td></td></tr>
+            <tr><td>Ured — 2 / 4 / 8× mj.</td><td>paket</td><td>90 / 170 / 320 €</td><td>okvir za tipičan ured</td></tr>
+            <tr><td>Apartman 1 / 2 / 4 / 8× mj.</td><td>m²</td><td>1,40 / 1,20 / 1,00 / 0,80 €</td><td></td></tr>
+            <tr><td>Stubište 2× mj.</td><td>zgrada</td><td>50 €</td><td>ili 3,40 € po stanu</td></tr>
+            <tr><td>Stubište 4× mj.</td><td>zgrada</td><td>100 €</td><td>ili 3,00 € po stanu</td></tr>
+            <tr><td>Hladnjak / mikrovalna</td><td>kom</td><td>15 €</td><td>doplata na jednokratno</td></tr>
+            <tr><td>Pećnica</td><td>kom</td><td>20 €</td><td>doplata na jednokratno</td></tr>
+            <tr><td>Staklo / okviri / rolete</td><td>m²</td><td>1,50 / 2,00 / 2,50 €</td><td></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">Obrt nije u sustavu PDV-a. Izvan Zagreba zbraja se prijevoz.</p>
+    </div>
+  </section>
+  <section class="section dark" id="kalkulator">
+    <div class="wrap">
+      <div class="section-head"><p class="kicker">Kalkulator</p><h2>Stvarna procjena, ne prazan naslov.</h2></div>
+      <div class="calc">
+        <form class="panel" id="calcForm">
+          <label for="serviceType">Usluga</label>
+          <select id="serviceType">
+            <option value="stambeni">Stan / kuća — jednokratno (2,50 €/m²)</option>
+            <option value="generalno">Generalno čišćenje (4,00 €/m²)</option>
+            <option value="adaptacija">Nakon adaptacije (3,50 €/m²)</option>
+            <option value="poslovni">Poslovni prostor (1,60 €/m²)</option>
+            <option value="apartman">Apartman / vila (1,40 €/m²)</option>
+          </select>
+          <label for="area">Površina (m²)</label>
+          <input id="area" type="number" min="15" max="800" placeholder="npr. 68" />
+          <div class="checks">
+            <label><input type="checkbox" data-extra value="fridge" /> Hladnjak +15 €</label>
+            <label><input type="checkbox" data-extra value="microwave" /> Mikrovalna +15 €</label>
+            <label><input type="checkbox" data-extra value="oven" /> Pećnica +20 €</label>
+            <label><input type="checkbox" data-extra value="windows" /> Prozori, okvirno +25 €</label>
+          </div>
+        </form>
+        <div class="estimate" id="estimateBox">
+          <p class="kicker">Procjena</p>
+          <div class="big">—</div>
+          <ul><li>Unesite površinu za procjenu.</li></ul>
+          <button class="btn btn-gold" type="button" id="waQuote">Pošalji na WhatsApp</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer class="footer"><div class="wrap legal"><span>Koni Clean · demo prijedlog</span><a href="kontakt.html">Rezervacija</a></div></footer>
+  <a class="btn btn-whatsapp float-wa" href="https://wa.me/385953567768" target="_blank" rel="noopener">WhatsApp</a>
+  <script src="js/app.js"></script>
+</body>
+</html>

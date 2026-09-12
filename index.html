@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Koni Clean — profesionalno čišćenje u Zagrebu</title>
+  <meta name="description" content="Čišćenje stanova, ureda, stubišta i apartmana u Zagrebu. Jasne cijene, jedan broj za dogovor." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="demo-banner">Prijedlog novog izgleda — <strong>demo</strong>, nije službena stranica Koni Clean.</div>
+  <div class="topbar">
+    <div class="topbar-inner">
+      <span>Radno vrijeme: pon–sub 08–18, ostalo po dogovoru</span>
+      <span><a href="tel:+385953567768">+385 95 356 77 68</a> · <a href="mailto:info@koniclean.hr">info@koniclean.hr</a></span>
+    </div>
+  </div>
+  <header class="site-header">
+    <div class="nav-inner">
+      <a class="logo" href="index.html"><span class="logo-mark">KONI<span>CLEAN</span></span><span class="logo-sub">Zagreb</span></a>
+      <button class="nav-toggle" aria-label="Izbornik"><span></span></button>
+      <ul class="nav-links">
+        <li><a class="active" href="index.html">Početna</a></li>
+        <li><a href="usluge.html">Usluge</a></li>
+        <li><a href="cjenik.html">Cjenik</a></li>
+        <li><a href="o-nama.html">O nama</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+        <li><a class="btn btn-gold" href="cjenik.html">Procijeni cijenu</a></li>
+      </ul>
+    </div>
+  </header>
+  <section class="hero">
+    <div class="hero-media"></div>
+    <div class="hero-content">
+      <p class="eyebrow">Servis za čišćenje · Zagreb</p>
+      <h1>Čisto, na vrijeme, bez nagađanja oko cijene.</h1>
+      <p>Jedan broj, jasne stavke i dolazak koji se može uskladiti s Vašim rasporedom. Stanovi, uredi, stubišta i apartmani.</p>
+      <div class="btn-row">
+        <a class="btn btn-gold" href="cjenik.html">Pogledajte cjenik</a>
+        <a class="btn btn-ghost" href="https://wa.me/385953567768" target="_blank" rel="noopener">WhatsApp dogovor</a>
+      </div>
+      <div class="hero-facts">
+        <div><strong>65 €</strong><span>minimalna narudžba</span></div>
+        <div><strong>2,50 €</strong><span>od / m² stan, jednokratno</span></div>
+        <div><strong>0%</strong><span>PDV — obrt nije u sustavu</span></div>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="kicker">Usluge</p>
+        <h2>Što točno čistimo</h2>
+      </div>
+      <div class="grid-4">
+        <article class="card"><div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=800&q=80')"></div><h3>Stambeni prostor</h3><p>Jednokratno, redovito održavanje ili generalno čišćenje.</p></article>
+        <article class="card"><div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80')"></div><h3>Poslovni prostor</h3><p>Uredi, ordinacije i trgovine. Termini prije ili poslije posla.</p></article>
+        <article class="card"><div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?auto=format&fit=crop&w=800&q=80')"></div><h3>Stubišta</h3><p>Ulaz, stubište, dizalo i sandučići, 2–8 puta mjesečno.</p></article>
+        <article class="card"><div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1616594039964-ae9021a400a9?auto=format&fit=crop&w=800&q=80')"></div><h3>Dubinsko i apartmani</h3><p>Tepisi, tapecirani namještaj i objekti između gostiju.</p></article>
+      </div>
+    </div>
+  </section>
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head"><p class="kicker">Tijek</p><h2>Tri koraka do termina</h2></div>
+      <div class="grid-3">
+        <article class="panel"><div class="num">01</div><h3>Pošaljite površinu</h3><p>Kvadratura, adresa u Zagrebu i željeni datum.</p></article>
+        <article class="panel"><div class="num">02</div><h3>Potvrdimo stavke</h3><p>Što je u cijeni, što se doplaćuje i koliki je minimum.</p></article>
+        <article class="panel"><div class="num">03</div><h3>Dođemo na dogovor</h3><p>Sredstva i oprema su naša. Niste dužni ostati u prostoru.</p></article>
+      </div>
+    </div>
+  </section>
+  <section class="section dark">
+    <div class="wrap">
+      <div class="section-head"><p class="kicker">Procjena</p><h2>Okvirna cijena u minuti</h2></div>
+      <div class="calc">
+        <form class="panel" id="calcForm">
+          <label for="serviceType">Usluga</label>
+          <select id="serviceType">
+            <option value="stambeni">Stan / kuća — jednokratno (2,50 €/m²)</option>
+            <option value="generalno">Generalno čišćenje (4,00 €/m²)</option>
+            <option value="adaptacija">Nakon adaptacije (3,50 €/m²)</option>
+            <option value="poslovni">Poslovni prostor (1,60 €/m²)</option>
+            <option value="apartman">Apartman / vila (1,40 €/m²)</option>
+          </select>
+          <label for="area">Površina (m²)</label>
+          <input id="area" type="number" min="15" max="800" placeholder="npr. 54" />
+          <div class="checks">
+            <label><input type="checkbox" data-extra value="fridge" /> Hladnjak +15 €</label>
+            <label><input type="checkbox" data-extra value="microwave" /> Mikrovalna +15 €</label>
+            <label><input type="checkbox" data-extra value="oven" /> Pećnica +20 €</label>
+            <label><input type="checkbox" data-extra value="windows" /> Prozori, okvirno +25 €</label>
+          </div>
+        </form>
+        <div class="estimate" id="estimateBox">
+          <p class="kicker">Procjena</p>
+          <div class="big">—</div>
+          <ul><li>Unesite površinu za procjenu.</li></ul>
+          <button class="btn btn-gold" type="button" id="waQuote">Pošalji procjenu na WhatsApp</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="wrap grid-2">
+      <div>
+        <p class="kicker">Jasnoća</p>
+        <h2>Gdje radimo i kako nas naći</h2>
+        <p class="muted" style="margin:1rem 0">Operativa je Zagreb. Sjedište obrta je u Pločama.</p>
+        <p><strong>Operativa:</strong> Slavonska avenija 1c, 10000 Zagreb</p>
+        <p><strong>Sjedište obrta:</strong> Vladimira Nazora 10, 20340 Ploče</p>
+        <p style="margin-top:.7rem"><strong>Telefon:</strong> <a href="tel:+385953567768">+385 95 356 77 68</a></p>
+      </div>
+      <div class="panel">
+        <h3>Što nije u standardnom paketu</h3>
+        <p>Čišćenje nakon gradnje, vanjske površine, unutrašnjost ormara i dizanje teškog namještaja dogovara se zasebno.</p>
+      </div>
+    </div>
+  </section>
+  <footer class="footer">
+    <div class="wrap footer-grid">
+      <div><h3>Koni Clean</h3><p>Profesionalno čišćenje prostora u Zagrebu. Obrt nije u sustavu PDV-a.</p></div>
+      <div><h3>Stranice</h3><ul><li><a href="usluge.html">Usluge</a></li><li><a href="cjenik.html">Cjenik</a></li><li><a href="faq.html">Česta pitanja</a></li><li><a href="kontakt.html">Kontakt</a></li></ul></div>
+      <div><h3>Kontakt</h3><ul><li><a href="tel:+385953567768">+385 95 356 77 68</a></li><li><a href="mailto:info@koniclean.hr">info@koniclean.hr</a></li><li>10000 Zagreb · sjedište Ploče</li></ul></div>
+    </div>
+    <div class="wrap legal"><span>Demo prijedlog 2026. Podaci s javne stranice koniclean.hr.</span><a href="politika-privatnosti.html">Privatnost</a></div>
+  </footer>
+  <a class="btn btn-whatsapp float-wa" href="https://wa.me/385953567768" target="_blank" rel="noopener">WhatsApp</a>
+  <script src="js/app.js"></script>
+</body>
+</html>
