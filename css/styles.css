@@ -36,7 +36,6 @@ button, input, select, textarea { font: inherit; color: inherit; }
 }
 .demo-banner strong { color: var(--gold-2); }
 
-.topbar { background: var(--deep); color: #ece6db; font-size: 0.86rem; }
 .topbar-inner, .nav-inner, .wrap {
   width: min(var(--max), calc(100% - 2rem));
   margin: 0 auto;
@@ -45,11 +44,9 @@ button, input, select, textarea { font: inherit; color: inherit; }
   display: flex;
   justify-content: space-between;
   gap: 1rem;
-  padding: 0.55rem 0;
+  padding: 0.7rem 0;
   flex-wrap: wrap;
 }
-.topbar a { color: #ece6db; text-decoration: none; }
-.topbar a:hover { color: var(--gold-2); }
 .muted { color: var(--muted); }
 
 .site-header {
@@ -319,10 +316,18 @@ th { font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; colo
 .form-ok { background: #e5f3eb; color: var(--ok); }
 .form-err { background: #f8e8e8; color: var(--err); }
 
-.footer { background: var(--deep); color: #e8e0d4; padding: 3rem 0 1.4rem; }
+.footer { background: var(--deep); color: #e8e0d4; padding: 0 0 1.4rem; }
+.footer-bar {
+  background: #0d0b09;
+  color: #ece6db;
+  font-size: 0.86rem;
+  border-bottom: 1px solid #2d2923;
+}
+.footer-bar a { color: #ece6db; text-decoration: none; }
+.footer-bar a:hover { color: var(--gold-2); }
 .footer a { color: #e8e0d4; text-decoration: none; }
 .footer a:hover { color: var(--gold-2); }
-.footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 1.5rem; }
+.footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 1.5rem; padding-top: 2.4rem; }
 .footer h3 { font-family: Fraunces, serif; margin-bottom: 0.6rem; color: #f4efe7; }
 .footer p, .footer li { color: #d5cdc2; }
 .footer ul { list-style: none; }
